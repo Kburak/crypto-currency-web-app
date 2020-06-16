@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h3>{{ notfound }}</h3>
+
+    {% if crypto.Response %}
+        <h2>Sorry, {{ quote }} symbol doesn't exist. Please Try Again.</h2>
+    {% endif %}
+    {% for key,value in crypto.DISPLAY.items %}
+
+        <div class="jumbotron ">
+            <div class="container">
+            <h1 class="display-4 font-weight-bold">{{ key }} </h1>
+            <hr>
+              <strong class="font-italic">Price</strong>:<br>  {{ value.USD.PRICE }} <br>
+              <strong class="font-italic">Day High</strong>: <br> {{ value.USD.HIGHDAY }} <br>
+              <strong class="font-italic">Day Low</strong>: <br> {{ value.USD.LOWDAY }}   <br>
+              <strong class="font-italic">Market Cap</strong>: <br> {{ value.USD.MKTCAP }} <br>
+              <hr class="my-4">
+            </div>
+        </div>
+        <br><br>
+
+      {% endfor %}
+{% endblock %}
