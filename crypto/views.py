@@ -6,7 +6,6 @@ import json
 api_key = '2864eda73aa52539b39242f69af0ffceb4c83faa4ade9af093ea718ea1930eb9'
 
 
-# Create your views here.
 def index(request):
 
     # Grab Crypto Price Data
@@ -40,4 +39,15 @@ def prices(request):
         return render(request, 'prices.html', context)
     else:
         notfound = 'Enter a crypto currency symbol into to search'
-        return render(request, 'prices.html', {notfound})
+        return render(request, 'prices.html', {'notfound': notfound})
+
+
+def all_prices(request):
+    crpyto_names = 'BTC,ETH,XRP,BCH,EOS,LTC,XLM,ADA,USDT,MIOATA,TRX'
+    all_crypto = requests.get(f'https://min-api.cryptocompare.com/data/pricemultifull?fsyms={crpyto_names}&tsyms=USD&api_key={api_key}')
+    price = json.loads(all_crypto.content)
+
+    context = {
+        'price': price,
+    }
+    return render(request, 'all_prices.html', context)
