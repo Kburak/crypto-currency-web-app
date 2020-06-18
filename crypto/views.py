@@ -3,7 +3,7 @@ import requests
 import json
 
 
-api_key = '2864eda73aa52539b39242f69af0ffceb4c83faa4ade9af093ea718ea1930eb9'
+api_key = 'Your API Key'
 
 
 def index(request):
