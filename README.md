@@ -1,7 +1,9 @@
 
 # crypto-currency-web-app
 
-  A simple web app with Django to show current news and prices for Crypto market. It uses the CryptoCompare.com's API.
+  A simple web app with Django to be able to check current news and prices for Crypto market. It uses the CryptoCompare.com's API.
+
+  To get your own API Key, simply go into the website and create one. You can paste api_key variable which you can see an area 'Your API Key'.
 
 ## Install guide
 
